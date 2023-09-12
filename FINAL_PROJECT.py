@@ -4,13 +4,19 @@ import random
 
 pygame.font.init()
 
+
+# backround code
+
 WIDTH, HEIGHT = 1000, 800
 WIN = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption("survive the jungle")
 
 BG = pygame.transform.scale(
     pygame.image.load("survive the jungle-wallpaper-preview.jpg"), (WIDTH, HEIGHT)
-)
+    )
+
+
+# characters code
 
 PREY_IMG = pygame.image.load("prey.survive_the_jungle.png")
 ANIMAL_IMG = pygame.image.load("predator.survive_the_jungle.png")
@@ -32,9 +38,10 @@ ANIMAL_IMG = pygame.transform.scale(ANIMAL_IMG, (STAR_WIDTH, STAR_HEIGHT))
 FONT = pygame.font.SysFont("comicsans", 30)
 
 
+#the codes for organizing the bg and characters and time on the screen 
+
 def draw(player, elapsed_time, stars):
     WIN.blit(BG, (0, 0))
-
     time_text = FONT.render(f"Time: {round(elapsed_time)}s", 1, "white")
     WIN.blit(time_text, (10, 10))
 
@@ -45,6 +52,8 @@ def draw(player, elapsed_time, stars):
 
     pygame.display.update()
 
+
+# main game loop and commands for the game
 
 def main():
     run = True
@@ -110,6 +119,8 @@ def main():
 
     pygame.quit()
 
+
+# call for game loop and commands
 
 if __name__ == "__main__":
     main()
